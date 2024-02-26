@@ -1,0 +1,38 @@
+<html>
+<body>
+    {{ hi }}
+
+
+    {{name}}
+
+<br>
+<p>
+    {% for name in names_list %}
+    {{name}}
+    {% endfor %}
+
+    {{names_list.1}}
+
+    <p>
+     
+        Below is the car's information:
+
+    </p>
+
+    <p>
+      
+       The color of car1 is: {{car1.color}} makes sound: {{ car1.honk }} and has wheels: {{ car1.wheels}}
+    
+    <br>
+
+        The color of car2 is: {{ car2.color }} makes sound: {{ car2.honk }} and has wheels: {{ car2.wheels }}
+
+    <br>
+
+        The make of motorcycle1 is: {{ motorcycle1.make }} year: {{ motorcycle1.year }} and has wheels: {{ motorcycle1.wheels }}
+
+    </p>
+
+</p>
+</body>
+</html>
