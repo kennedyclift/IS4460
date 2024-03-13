@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    </head>
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
 <body>
-  Contact Edit: <br>
-    <form method="post" class="form">
-    
-    {% csrf_token %}
-    {{ form.as_p }}
-
-    <input type="submit" value="Update">
+    Contact Edit: <br>
+    <form method="post" enctype="multipart/form-data" class="form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="file" name="logo">  <!-- Add this line for the file upload field -->
+        <input type="submit" value="Update">
     </form>
-    
-
-
-    
 </body>
-
 </html>
