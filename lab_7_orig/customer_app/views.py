@@ -122,3 +122,20 @@ class ContactEdit(View):
                       template_name = 'customer_app/contact_edit.html',
                       context = {'contact':contact,'form':form})
     
+    def post(self,request,contact_id=None):
+        if contact_id:
+            contact = Contact.objects.get(pk=contact_id)
+        else:
+            contact = Contact()
+
+        form = ContactForm(request.POST, instance=contact)
+
+        if form.is_valid():
+            contact = form.save()
+
+            return redirect(reverse("contact-edit"))
+        
+        return render(request = request,
+                      template_name = 'customer_app/contact_edit.html',
+                      context = {'contact':contact,'form':form})
+    
