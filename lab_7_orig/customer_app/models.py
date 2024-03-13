@@ -30,5 +30,3 @@ class Order(models.Model):
         default='pending'
     )
 
-
-
