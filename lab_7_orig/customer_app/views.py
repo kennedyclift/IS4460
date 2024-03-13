@@ -2,7 +2,7 @@ from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.views import View
 from .models import Customer, Order
-from .forms import CustomerForm, OrderForm
+from .forms import ContactForm, CustomerForm, OrderForm,Contact
 # Create your views here.
 
 class CustomerList(View):
