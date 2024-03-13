@@ -15,23 +15,25 @@ class CustomerList(View):
     
 class CustomerEdit(View):
 
-    def get(self,request,customer_id):
-
+    def get(self, request, customer_id):
         customer = Customer.objects.get(pk=customer_id)
         form = CustomerForm(instance=customer)
 
-        return render(request = request,template_name = 'customer_app/customer_edit.html',context = {'customer':customer,'form':form})
-    
-    def post(self,request,customer_id):
+        return render(request=request, template_name='customer_app/customer_edit.html', context={'customer': customer, 'form': form})
 
+    def post(self, request, customer_id):
         customer = Customer.objects.get(pk=customer_id)
-        form = CustomerForm(request.POST,instance=customer)
+        form = CustomerForm(request.POST, request.FILES, instance=customer)
 
         if form.is_valid():
-            customer = form.save()
-        
-        return render(request = request,template_name = 'customer_app/customer_edit.html',context = {'customer':customer,'form':form})
-    
+            logo = request.FILES.get('logo')  # Get the uploaded logo file
+            if logo:
+                customer.logo = logo  # Assign the uploaded logo to the customer object
+
+            customer = form.save()  # Save the form data
+
+        return render(request=request, template_name='customer_app/customer_edit.html', context={'customer': customer, 'form': form})
+
 
 
 class OrderList(View):
