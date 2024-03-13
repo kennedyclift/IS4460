@@ -107,3 +107,18 @@ class OrderDelete(View):
 
         return redirect(reverse("order-list"))
     
+class ContactEdit(View):
+    
+    def get(self,request,contact_id=None):
+
+        if contact_id:
+            contact = Contact.objects.get(pk=contact_id)
+        else:
+            contact = Contact()
+        
+        form = ContactForm(instance=contact)
+
+        return render(request = request,
+                      template_name = 'customer_app/contact_edit.html',
+                      context = {'contact':contact,'form':form})
+    
