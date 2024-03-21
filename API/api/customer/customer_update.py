@@ -1,20 +1,19 @@
 import requests
 import json
 
-id = 1
+api_url = 'https://localhost:8000/api/customers/'  
 
-api_url = f'http://localhost:8000/api/customers/{id}/'
+customer_id = 1  
 
-customer_data = {
-    "name": "Customer XXXXX:",
-    "email": "customerX@example.com",
-    "phone_number": "8012224444"
+updated_customer_data = {
+    "name": "Updated Customer Name",  
+    "email": "updated_email@example.com",  
+    "phone_number": "1234567890"  
 }
 
-response = requests.put(api_url, data=json.dumps(customer_data), headers={'Content-Type': 'application/json'})
+response = requests.put(f'{api_url}{customer_id}/', data=json.dumps(updated_customer_data), headers={'Content-Type': 'application/json'})
 
 if response.status_code == 200:
-    print("Customers updated successfully.")
+    print("Customer updated successfully.")
 else:
-    print("Error updating the customer.")
-    
+    print(f"Error updating customer: {response.status_code} - {response.text}")

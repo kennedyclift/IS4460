@@ -7,4 +7,7 @@ class Customer(models.Model):
     email = models.EmailField(unique=True)
     phone_number = models.CharField(max_length=15)
 
-# Add Order Class
+class Order(models.Model):
+    customer = models.ForeignKey(Customer, related_name='orders', on_delete=models.CASCADE)
+    order_date = models.DateField(auto_now_add=True)
+
