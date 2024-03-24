@@ -1,0 +1,8 @@
+<h1>Add Movie</h1>
+<form method="post">
+    {% csrf_token %}
+    <label>Title:</label>
+    <input type="text" name="title"><br>
+    <!-- Add more form fields as needed -->
+    <button type="submit">Submit</button>
+</form>
