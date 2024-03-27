@@ -1,0 +1,15 @@
+<!-- movies/templates/movies/movie_delete.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Movie</title>
+</head>
+<body>
+    <h1>Delete Movie</h1>
+    <p>Are you sure you want to delete "{{ movie.title }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Delete">
+    </form>
+</body>
+</html>
