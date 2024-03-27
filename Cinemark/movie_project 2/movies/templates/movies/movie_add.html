@@ -1,0 +1,30 @@
+<!-- movie_add.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Movie</title>
+</head>
+<body>
+    <h1>Add Movie</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label>Title:</label>
+        <input type="text" name="title"><br>
+        <label>Description:</label>
+        <textarea name="description"></textarea><br>
+        <label>Director:</label>
+        <input type="text" name="director"><br>
+        <label>Release Year:</label>
+        <input type="text" name="release_year"><br>
+        <label>Budget:</label>
+        <input type="text" name="budget"><br>
+        <label>Runtime:</label>
+        <input type="text" name="runtime"><br>
+        <label>Rating:</label>
+        <input type="text" name="rating"><br>
+        <label>Genre:</label>
+        <input type="text" name="genre"><br>
+        <input type="submit" value="Add">
+    </form>
+</body>
+</html>

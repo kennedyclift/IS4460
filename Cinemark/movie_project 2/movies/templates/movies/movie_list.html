@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie List</title>
+</head>
+<body>
+    <h1>Movie List</h1>
+    <ul>
+        {% for movie in movie_list %}
+            <li>
+                <a href="{% url 'movie-detail' movie.pk %}">{{ movie.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'movie-add' %}">Add Movie</a>
+</body>
+</html>
