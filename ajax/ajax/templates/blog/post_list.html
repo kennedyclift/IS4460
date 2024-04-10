@@ -19,9 +19,9 @@
         <script>
             $(document).ready(function () {
                 $('.like-button').click(function () {
-                    debugger;
+                   debugger;
                     var post_id = $(this).data('postid');
-                    $ajax({
+                    $.ajax({
                         url: '/blog/like_post/${post_id}/',
                         type: 'POST',
                         success: function (data) {
