@@ -18,15 +18,15 @@
     
         <script>
             $(document).ready(function () {
-                $('.like-button').click(function () {
+                $(`.like-button`).click(function () {
                    debugger;
                     var post_id = $(this).data('postid');
                     $.ajax({
-                        url: '/blog/like_post/${post_id}/',
+                        url: `/blog/like_post/${post_id}/`,
                         type: 'POST',
                         success: function (data) {
                             debugger;
-                            $('#like-count-${data.id}').text(data.likes);
+                            $(`#like-count-${data.id}`).text(data.likes);
                         },
                         beforeSend: function (xhr) {
                             xhr.setRequestHeader("X-CSRFToken", $('meta[name="csrf-token"]').attr('content'));
